@@ -113,6 +113,7 @@ for Hemisphere in L R ; do
     wbname=`echo $Map | cut -d "@" -f 2`
     mapname=`echo $Map | cut -d "@" -f 3`
     mris_convert -c "$FreeSurferFolder"/surf/"$hemisphere"h."$fsname" "$FreeSurferFolder"/surf/"$hemisphere"h.white "$WBFolder"/"$Subject"."$Hemisphere"."$wbname".native.shape.gii
+    mv "$WBFolder/"$hemisphere"h.$Subject.$Hemisphere.$wbname.native.shape.gii" "$WBFolder/$Subject.$Hemisphere.$wbname.native.shape.gii"
     wb_command -set-structure "$WBFolder"/"$Subject"."$Hemisphere"."$wbname".native.shape.gii ${Structure}
     wb_command -set-map-names "$WBFolder"/"$Subject"."$Hemisphere"."$wbname".native.shape.gii -map 1 "$Subject"_"$Hemisphere"_"$mapname"
     wb_command -metric-palette "$WBFolder"/"$Subject"."$Hemisphere"."$wbname".native.shape.gii MODE_AUTO_SCALE_PERCENTAGE -pos-percent 2 98 -palette-name Gray_Interp -disp-pos true -disp-neg true -disp-zero true
